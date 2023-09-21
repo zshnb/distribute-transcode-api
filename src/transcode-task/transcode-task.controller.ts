@@ -1,15 +1,17 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { TranscodeTaskService } from './transcode-task.service';
-import { CreateTranscodeTaskDto } from './dto/create-transcode-task.dto';
 import { UpdateTranscodeTaskDto } from './dto/update-transcode-task.dto';
 
-@Controller('transcode-task')
+@Controller('api/transcode-task')
 export class TranscodeTaskController {
   constructor(private readonly transcodeTaskService: TranscodeTaskService) {}
 
   @Post()
-  create(@Body() createTranscodeTaskDto: CreateTranscodeTaskDto) {
-    return this.transcodeTaskService.create(createTranscodeTaskDto);
+  async create() {
+    const id = await this.transcodeTaskService.create();
+    return {
+      data: id
+    }
   }
 
   @Get()
