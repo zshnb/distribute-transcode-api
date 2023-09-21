@@ -1,11 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTranscodeTaskDto } from './dto/create-transcode-task.dto';
 import { UpdateTranscodeTaskDto } from './dto/update-transcode-task.dto';
+import { Model } from 'mongoose';
+import { TranscodeTask } from './entities/transcode-task.entity';
+import { newTaskId } from 'src/util/idUtil';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class TranscodeTaskService {
-  create(createTranscodeTaskDto: CreateTranscodeTaskDto) {
-    return 'This action adds a new transcodeTask';
+  constructor(@InjectModel(TranscodeTask.name) private transcodeModel: Model<TranscodeTask>) {}
+
+  async create() {
+    const transcodeTask = new this.transcodeModel({
+      id: newTaskId()
+    })
+    await transcodeTask.save()
+    return transcodeTask.id
   }
 
   findAll() {
