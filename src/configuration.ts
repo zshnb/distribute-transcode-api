@@ -3,5 +3,5 @@ export default function loadConfiguration() {
     mongo: {
       uri: process.env.MONGO_URI,
     },
-  };
+  }
 }

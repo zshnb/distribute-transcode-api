@@ -1,14 +1,14 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { HydratedDocument } from 'mongoose'
 
-export type CatDocument = HydratedDocument<TranscodeTask>;
+export type CatDocument = HydratedDocument<TranscodeTask>
 
 @Schema({
   timestamps: true,
 })
 export class TranscodeTask {
   @Prop()
-  id: string;
+  id: string
 }
 
-export const TranscodeTaskSchema = SchemaFactory.createForClass(TranscodeTask);
+export const TranscodeTaskSchema = SchemaFactory.createForClass(TranscodeTask)

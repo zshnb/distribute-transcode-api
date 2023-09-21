@@ -1,18 +1,18 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { TranscodeTaskService } from './transcode-task.service';
+import { Test, TestingModule } from '@nestjs/testing'
+import { TranscodeTaskService } from './transcode-task.service'
 
 describe('TranscodeTaskService', () => {
-  let service: TranscodeTaskService;
+  let service: TranscodeTaskService
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [TranscodeTaskService],
-    }).compile();
+    }).compile()
 
-    service = module.get<TranscodeTaskService>(TranscodeTaskService);
-  });
+    service = module.get<TranscodeTaskService>(TranscodeTaskService)
+  })
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
-  });
-});
+    expect(service).toBeDefined()
+  })
+})
