@@ -1,5 +1,5 @@
-import { format } from "date-fns"
-import { nanoid } from "nanoid"
+import { format } from 'date-fns'
+import { nanoid } from 'nanoid'
 
 export function newTaskId() {
   const now = new Date()
