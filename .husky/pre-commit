@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx prettier --write src/app.module.ts src/configuration.ts src/transcode-task/dto/update-transcode-task.dto.ts src/transcode-task/entities/transcode-task.entity.ts src/transcode-task/transcode-task.controller.ts src/transcode-task/transcode-task.module.ts src/transcode-task/transcode-task.service.ts src/util/idUtil.ts

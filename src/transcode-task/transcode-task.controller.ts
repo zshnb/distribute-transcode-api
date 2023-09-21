@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { TranscodeTaskService } from './transcode-task.service';
 import { UpdateTranscodeTaskDto } from './dto/update-transcode-task.dto';
 
@@ -9,9 +17,7 @@ export class TranscodeTaskController {
   @Post()
   async create() {
     const id = await this.transcodeTaskService.create();
-    return {
-      data: id
-    }
+    return { data: id };
   }
 
   @Get()
@@ -25,7 +31,10 @@ export class TranscodeTaskController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTranscodeTaskDto: UpdateTranscodeTaskDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateTranscodeTaskDto: UpdateTranscodeTaskDto,
+  ) {
     return this.transcodeTaskService.update(+id, updateTranscodeTaskDto);
   }
 

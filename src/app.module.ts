@@ -10,7 +10,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['config/.env.local', `config/.env.${process.env.NODE_ENV}`, 'config/.env'],
+      envFilePath: [
+        'config/.env.local',
+        `config/.env.${process.env.NODE_ENV}`,
+        'config/.env',
+      ],
       load: [configuration],
       isGlobal: true,
     }),
@@ -34,4 +38,4 @@ import { MongooseModule } from '@nestjs/mongoose';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

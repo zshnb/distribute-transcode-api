@@ -4,7 +4,7 @@ import { HydratedDocument } from 'mongoose';
 export type CatDocument = HydratedDocument<TranscodeTask>;
 
 @Schema({
-  timestamps: true
+  timestamps: true,
 })
 export class TranscodeTask {
   @Prop()
@@ -12,4 +12,3 @@ export class TranscodeTask {
 }
 
 export const TranscodeTaskSchema = SchemaFactory.createForClass(TranscodeTask);
-

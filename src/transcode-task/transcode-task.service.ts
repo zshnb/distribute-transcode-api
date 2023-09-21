@@ -7,14 +7,17 @@ import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class TranscodeTaskService {
-  constructor(@InjectModel(TranscodeTask.name) private transcodeModel: Model<TranscodeTask>) {}
+  constructor(
+    @InjectModel(TranscodeTask.name)
+    private transcodeModel: Model<TranscodeTask>,
+  ) {}
 
   async create() {
     const transcodeTask = new this.transcodeModel({
-      id: newTaskId()
-    })
-    await transcodeTask.save()
-    return transcodeTask.id
+      id: newTaskId(),
+    });
+    await transcodeTask.save();
+    return transcodeTask.id;
   }
 
   findAll() {
