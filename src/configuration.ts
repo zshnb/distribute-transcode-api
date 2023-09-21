@@ -1,3 +1,7 @@
 export default function loadConfiguration() {
-  return {}
+  return {
+    mongo: {
+      uri: process.env.MONGO_URI
+    }
+  }
 }
